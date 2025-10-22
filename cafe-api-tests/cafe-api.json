@@ -1,0 +1,1055 @@
+{
+	"info": {
+		"_postman_id": "b07e93bd-0074-4f8f-b9c0-61d544c3725a",
+		"name": "Cafe & Wi-Fi API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get All Cafes",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e86f1776-201c-4cd3-b8dd-8d9a213a85a3",
+						"exec": [
+							"const json = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type header is JSON\", function () {\r",
+							"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response body contains data array\", function () {\r",
+							"    pm.expect(json.cafes).to.be.an(\"array\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response has correct key\", function () {\r",
+							"    pm.expect(json).to.have.key(\"cafes\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Each Cafe object contains expected fields\", function () {\r",
+							"    json.cafes.forEach(cafe => {\r",
+							"        pm.expect(cafe).to.have.keys([\r",
+							"            \"can_take_calls\",\r",
+							"            \"coffee_price\",\r",
+							"            \"has_sockets\",\r",
+							"            \"has_toilet\",\r",
+							"            \"has_wifi\",\r",
+							"            \"id\",\r",
+							"            \"img_url\",\r",
+							"            \"location\",\r",
+							"            \"map_url\",\r",
+							"            \"name\",\r",
+							"            \"seats\"\r",
+							"        ]);\r",
+							"    })\r",
+							"});\r",
+							"\r",
+							"pm.test(\"All URLs are valid and start with http\", function () {\r",
+							"    json.cafes.forEach(cafe => {\r",
+							"        pm.expect(cafe.img_url).to.match(/https?:\\/\\//);\r",
+							"        pm.expect(cafe.map_url).to.match(/https?:\\/\\//);\r",
+							"    });\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Cafe with ID 3 is One & All Cafe Peckham\", function () {\r",
+							"    const cafe = json.cafes.find(cafe => cafe.id === 3);\r",
+							"    pm.expect(cafe.location).to.eql(\"Peckham\");\r",
+							"    pm.expect(cafe.name).to.eql(\"One & All Cafe Peckham\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "441a8404-b0e0-4f49-92d8-88a8ac476abc",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://127.0.0.1:5000/all"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Random Cafe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1da753ca-2164-40a9-9ecd-5a7febe668ff",
+						"exec": [
+							"const json = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type header is JSON\", function () {\r",
+							"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response has correct key\", function () {\r",
+							"    pm.expect(json).to.have.key(\"cafe\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Cafe object contains expected fields\", function () {\r",
+							"    pm.expect(json.cafe).to.have.keys([\r",
+							"        \"can_take_calls\",\r",
+							"        \"coffee_price\",\r",
+							"        \"has_sockets\",\r",
+							"        \"has_toilet\",\r",
+							"        \"has_wifi\",\r",
+							"        \"id\",\r",
+							"        \"img_url\",\r",
+							"        \"location\",\r",
+							"        \"map_url\",\r",
+							"        \"name\",\r",
+							"        \"seats\"\r",
+							"    ]);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"All URLs are valid and start with http\", function () {\r",
+							"    const cafe = json.cafe;\r",
+							"    pm.expect(cafe.img_url).to.match(/https?:\\/\\//);\r",
+							"    pm.expect(cafe.map_url).to.match(/https?:\\/\\//);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "c2314668-8983-4569-a80b-7ec0fbef2c19",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://127.0.0.1:5000/random"
+			},
+			"response": []
+		},
+		{
+			"name": "Search Cafes By Location",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "62346cc4-8b9c-40f3-8f5f-ddd528b69b32",
+						"exec": [
+							"const json = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type header is JSON\", function () {\r",
+							"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response body contains data array\", function () {\r",
+							"    pm.expect(json.cafes).to.be.an(\"array\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response has correct key\", function () {\r",
+							"    pm.expect(json).to.have.key(\"cafes\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response has 4 returned Cafe objects\", function () {\r",
+							"    const cafes = json.cafes;\r",
+							"    pm.expect(cafes).to.have.lengthOf(4)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Each Cafe object contains expected fields\", function () {\r",
+							"    json.cafes.forEach(cafe => {\r",
+							"        pm.expect(cafe).to.have.keys([\r",
+							"            \"can_take_calls\",\r",
+							"            \"coffee_price\",\r",
+							"            \"has_sockets\",\r",
+							"            \"has_toilet\",\r",
+							"            \"has_wifi\",\r",
+							"            \"id\",\r",
+							"            \"img_url\",\r",
+							"            \"location\",\r",
+							"            \"map_url\",\r",
+							"            \"name\",\r",
+							"            \"seats\"\r",
+							"        ]);\r",
+							"    })\r",
+							"});\r",
+							"\r",
+							"pm.test(\"All URLs are valid and start with http\", function () {\r",
+							"    json.cafes.forEach(cafe => {\r",
+							"        pm.expect(cafe.img_url).to.match(/https?:\\/\\//);\r",
+							"        pm.expect(cafe.map_url).to.match(/https?:\\/\\//);\r",
+							"    });\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "bd7065d0-8709-4657-a7d5-da8a90954ccf",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/search?loc=Peckham",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"search"
+					],
+					"query": [
+						{
+							"key": "loc",
+							"value": "Peckham"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Cafe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "efb1c166-b4aa-4b92-8577-7298716e830b",
+						"exec": [
+							"const json = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type header is JSON\", function () {\r",
+							"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response has 'response' key\", function () {\r",
+							"    pm.expect(json).to.have.property(\"response\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"'response' contains 'Success' message\", function () {\r",
+							"    pm.expect(json.response).to.have.property(\"Success\");\r",
+							"    pm.expect(json.response.Success).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Success message matches expected text\", function () {\r",
+							"    pm.expect(json.response.Success).to.eql(\"Successfully added the new cafe.\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "d0cc55a3-aff2-4597-95e8-ca076ad71c54",
+						"exec": [
+							"pm.collectionVariables.set(\"has_toilet\", pm.collectionVariables.get(\"has_toilet\") === \"true\");\r",
+							"pm.collectionVariables.set(\"has_wifi\", pm.collectionVariables.get(\"has_wifi\") === \"true\");\r",
+							"pm.collectionVariables.set(\"has_sockets\", pm.collectionVariables.get(\"has_sockets\") === \"true\");\r",
+							"pm.collectionVariables.set(\"can_take_calls\", pm.collectionVariables.get(\"can_take_calls\") === \"true\");\r",
+							"pm.collectionVariables.set(\"cafe_id\", parseInt(pm.collectionVariables.get(\"cafe_id\"), 10));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "6ffe1c4d-b8c1-4f65-8702-18682f5d0ca6",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "{{name}}",
+							"description": "str: Name of the cafe",
+							"type": "text"
+						},
+						{
+							"key": "map_url",
+							"value": "{{map_url}}",
+							"description": "str: URL of the cafe on google maps",
+							"type": "text"
+						},
+						{
+							"key": "img_url",
+							"value": "{{img_url}}",
+							"description": "str: URL of the image",
+							"type": "text"
+						},
+						{
+							"key": "location",
+							"value": "{{location}}",
+							"description": "str: Location of the cafe",
+							"type": "text"
+						},
+						{
+							"key": "seats",
+							"value": "{{seats}}",
+							"description": "str: Number of seats in the cafe",
+							"type": "text"
+						},
+						{
+							"key": "has_toilet",
+							"value": "{{has_toilet}}",
+							"description": "bool: Does the cafe have a toilet",
+							"type": "text"
+						},
+						{
+							"key": "has_wifi",
+							"value": "{{has_wifi}}",
+							"description": "bool: Does the cafe have public wi-fi",
+							"type": "text"
+						},
+						{
+							"key": "has_sockets",
+							"value": "{{has_sockets}}",
+							"description": "bool: Does the cafe have accessible sockets",
+							"type": "text"
+						},
+						{
+							"key": "can_take_calls",
+							"value": "{{can_take_calls}}",
+							"description": "bool: Does the cafe allow calls",
+							"type": "text"
+						},
+						{
+							"key": "coffee_price",
+							"value": "{{coffee_price}}",
+							"description": "str: Average price of coffee",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://127.0.0.1:5000/add"
+			},
+			"response": []
+		},
+		{
+			"name": "Verify Cafe Was Added",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "19d91d9e-1364-418a-9d57-0cb545620d45",
+						"exec": [
+							"const json = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type header is JSON\", function () {\r",
+							"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Cafes array is returned\", function () {\r",
+							"    pm.expect(json).to.have.property(\"cafes\");\r",
+							"    pm.expect(json.cafes).to.be.an(\"array\").that.is.not.empty;\r",
+							"});\r",
+							"\r",
+							"const cafe = json.cafes[0];\r",
+							"\r",
+							"pm.test(\"name matches\", () => pm.expect(cafe.name).to.eql(pm.collectionVariables.get(\"name\")));\r",
+							"pm.test(\"map_url matches\", () => pm.expect(cafe.map_url).to.eql(pm.collectionVariables.get(\"map_url\")));\r",
+							"pm.test(\"img_url matches\", () => pm.expect(cafe.img_url).to.eql(pm.collectionVariables.get(\"img_url\")));\r",
+							"pm.test(\"location matches\", () => pm.expect(cafe.location).to.eql(pm.collectionVariables.get(\"location\")));\r",
+							"pm.test(\"seats matches\", () => pm.expect(cafe.seats).to.eql(pm.collectionVariables.get(\"seats\")));\r",
+							"pm.test(\"has_toilet matches\", () => pm.expect(cafe.has_toilet).to.eql(pm.collectionVariables.get(\"has_toilet\")));\r",
+							"pm.test(\"has_wifi matches\", () => pm.expect(cafe.has_wifi).to.eql(pm.collectionVariables.get(\"has_wifi\")));\r",
+							"pm.test(\"has_sockets matches\", () => pm.expect(cafe.has_sockets).to.eql(pm.collectionVariables.get(\"has_sockets\")));\r",
+							"pm.test(\"can_take_calls matches\", () => pm.expect(cafe.can_take_calls).to.eql(pm.collectionVariables.get(\"can_take_calls\")));\r",
+							"pm.test(\"coffee_price matches\", () => pm.expect(cafe.coffee_price).to.eql(pm.collectionVariables.get(\"coffee_price\")));\r",
+							"pm.test(\"id matches\", () => pm.expect(cafe.id).to.eql(pm.collectionVariables.get(\"cafe_id\")));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "b486590a-058c-4e10-a62b-8a7fd0af67bb",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/search?loc={{location}}",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"search"
+					],
+					"query": [
+						{
+							"key": "loc",
+							"value": "{{location}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit Cafe Price By ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a136763e-8200-4870-ad37-ed831d698d4f",
+						"exec": [
+							"const json = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type header is JSON\", function () {\r",
+							"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response has 'response' key\", function () {\r",
+							"    pm.expect(json).to.have.property(\"response\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"'response' contains 'Success' message\", function () {\r",
+							"    pm.expect(json.response).to.have.property(\"Success\");\r",
+							"    pm.expect(json.response.Success).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Success message matches expected text\", function () {\r",
+							"    pm.expect(json.response.Success).to.eql(\"Successfully updated the price.\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "159a7f57-650c-448c-8fa6-2425dec69e47",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/update-price/{{cafe_id}}?new_price={{new_price}}",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"update-price",
+						"{{cafe_id}}"
+					],
+					"query": [
+						{
+							"key": "new_price",
+							"value": "{{new_price}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verify Coffee Price Was Updated",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e00581e7-9d21-482a-96ca-9c4c30b1e2ee",
+						"exec": [
+							"const json = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type header is JSON\", function () {\r",
+							"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Cafes array is returned\", function () {\r",
+							"    pm.expect(json).to.have.property(\"cafes\");\r",
+							"    pm.expect(json.cafes).to.be.an(\"array\").that.is.not.empty;\r",
+							"});\r",
+							"\r",
+							"const cafe = json.cafes[0];\r",
+							"\r",
+							"pm.test(\"coffee_price matches\", () => pm.expect(cafe.coffee_price).to.eql(pm.collectionVariables.get(\"new_price\")));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "a0127440-20c0-45ab-8678-4c9ee53ae01a",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/search?loc={{location}}",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"search"
+					],
+					"query": [
+						{
+							"key": "loc",
+							"value": "{{location}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Cafe By ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "44519c06-271c-482c-af6f-3d9759e68ce9",
+						"exec": [
+							"const json = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type header is JSON\", function () {\r",
+							"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response has 'response' key\", function () {\r",
+							"    pm.expect(json).to.have.property(\"response\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"'response' contains 'Success' message\", function () {\r",
+							"    pm.expect(json.response).to.have.property(\"Success\");\r",
+							"    pm.expect(json.response.Success).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Success message matches expected text\", function () {\r",
+							"    pm.expect(json.response.Success).to.eql(\"Successfully deleted the entry.\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "328040b7-c343-47ab-95f2-a1a5bbc6e6f7",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/delete/{{cafe_id}}?api_key={{secret_key}}",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"delete",
+						"{{cafe_id}}"
+					],
+					"query": [
+						{
+							"key": "api_key",
+							"value": "{{secret_key}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Without Location",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "62346cc4-8b9c-40f3-8f5f-ddd528b69b32",
+						"exec": [
+							"const json = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Status code is 400\", function() {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type header is JSON\", function () {\r",
+							"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response has 'error' key\", function () {\r",
+							"    pm.expect(json).to.have.property(\"error\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"'response' contains 'Bad Request' message\", function () {\r",
+							"    pm.expect(json.error).to.have.property(\"Bad Request\");\r",
+							"    pm.expect(json.error[\"Bad Request\"]).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Bad Request message matches expected text\", function () {\r",
+							"    pm.expect(json.error[\"Bad Request\"]).to.eql(\"Missing 'loc' parameter\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "ef6d8a04-321c-47df-8b87-5dab2c474984",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/search?loc=",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"search"
+					],
+					"query": [
+						{
+							"key": "loc",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Non-existing Location",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "62346cc4-8b9c-40f3-8f5f-ddd528b69b32",
+						"exec": [
+							"const json = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Status code is 404\", function() {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type header is JSON\", function () {\r",
+							"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response has 'error' key\", function () {\r",
+							"    pm.expect(json).to.have.property(\"error\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"'response' contains 'Not Found' message\", function () {\r",
+							"    pm.expect(json.error).to.have.property(\"Not Found\");\r",
+							"    pm.expect(json.error[\"Not Found\"]).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Not Found message matches expected text\", function () {\r",
+							"    pm.expect(json.error[\"Not Found\"]).to.eql(\"Sorry, we don't have a cafe at that location\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "1c626d14-a7c3-4f7f-ac42-dea197422c42",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/search?loc=Postlad",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"search"
+					],
+					"query": [
+						{
+							"key": "loc",
+							"value": "Postlad"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit Non-existing Cafe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a136763e-8200-4870-ad37-ed831d698d4f",
+						"exec": [
+							"pm.test(\"Status code is 404\", function() {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response is HTML\", () => {\r",
+							"    const contentType = pm.response.headers.get(\"Content-Type\");\r",
+							"    pm.expect(contentType).to.match(/html/);\r",
+							"});\r",
+							"\r",
+							"const text = pm.response.text();\r",
+							"\r",
+							"pm.test(\"Contains 404 in title\", () => {\r",
+							"    pm.expect(text).to.include(\"<title>404 Not Found</title>\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Contains 'Not Found' heading\", () => {\r",
+							"    pm.expect(text).to.include(\"<h1>Not Found</h1>\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Contains correct error message\", () => {\r",
+							"    pm.expect(text).to.include(\"Sorry a cafe with that id was not found in the database.\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "62807ea8-b867-4c57-9426-264de298c475",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/update-price/100000?new_price={{new_price}}",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"update-price",
+						"100000"
+					],
+					"query": [
+						{
+							"key": "new_price",
+							"value": "{{new_price}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Cafe Without Key",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "44519c06-271c-482c-af6f-3d9759e68ce9",
+						"exec": [
+							"const json = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type header is JSON\", function () {\r",
+							"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response has 'response' key\", function () {\r",
+							"    pm.expect(json).to.have.property(\"response\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"'response' contains 'Error' message\", function () {\r",
+							"    pm.expect(json.response).to.have.property(\"Error\");\r",
+							"    pm.expect(json.response.Error).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Error message matches expected text\", function () {\r",
+							"    pm.expect(json.response.Error).to.eql(\"Sorry, that's not allowed. Make sure you have the correct api key.\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "c8636af4-be8e-4cfc-9c55-a149c80adba8",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/delete/{{cafe_id}}?api_key=",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"delete",
+						"{{cafe_id}}"
+					],
+					"query": [
+						{
+							"key": "api_key",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Cafe Non-existing ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "44519c06-271c-482c-af6f-3d9759e68ce9",
+						"exec": [
+							"pm.test(\"Status code is 404\", function() {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response is HTML\", () => {\r",
+							"    const contentType = pm.response.headers.get(\"Content-Type\");\r",
+							"    pm.expect(contentType).to.match(/html/);\r",
+							"});\r",
+							"\r",
+							"const text = pm.response.text();\r",
+							"\r",
+							"pm.test(\"Contains 404 in title\", () => {\r",
+							"    pm.expect(text).to.include(\"<title>404 Not Found</title>\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Contains 'Not Found' heading\", () => {\r",
+							"    pm.expect(text).to.include(\"<h1>Not Found</h1>\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Contains correct error message\", () => {\r",
+							"    pm.expect(text).to.include(\"Sorry a cafe with that id was not found in the database.\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "30480af2-36b4-4e26-9696-76def06aab14",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/delete/1000000?api_key={{secret_key}}",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"delete",
+						"1000000"
+					],
+					"query": [
+						{
+							"key": "api_key",
+							"value": "{{secret_key}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "dcd6f1ca-1310-4043-a9d2-677034cb5705",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "3e9786d6-f9da-454d-9d6e-3c09c2059b04",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"pm.test(\"Response time < 1s\", function () {\r",
+					"  pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+					"});"
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "name",
+			"value": "Test Cafe",
+			"type": "string"
+		},
+		{
+			"key": "map_url",
+			"value": "http://www.google.ca/",
+			"type": "string"
+		},
+		{
+			"key": "img_url",
+			"value": "http://www.bing.ca/",
+			"type": "string"
+		},
+		{
+			"key": "location",
+			"value": "Postman",
+			"type": "string"
+		},
+		{
+			"key": "seats",
+			"value": "42+",
+			"type": "string"
+		},
+		{
+			"key": "has_toilet",
+			"value": "true",
+			"type": "string"
+		},
+		{
+			"key": "has_wifi",
+			"value": "true",
+			"type": "string"
+		},
+		{
+			"key": "has_sockets",
+			"value": "true",
+			"type": "string"
+		},
+		{
+			"key": "can_take_calls",
+			"value": "true",
+			"type": "string"
+		},
+		{
+			"key": "coffee_price",
+			"value": "$4.99",
+			"type": "string"
+		},
+		{
+			"key": "new_price",
+			"value": "$4.98",
+			"type": "string"
+		},
+		{
+			"key": "cafe_id",
+			"value": "22",
+			"type": "string"
+		},
+		{
+			"key": "secret_key",
+			"value": "wow_super_secret",
+			"type": "string"
+		}
+	]
+}
