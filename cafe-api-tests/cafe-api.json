@@ -847,15 +847,10 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:5000/delete/{{cafe_id}}?api_key=",
-					"protocol": "http",
+					"raw": "{{base_url}}/delete/{{cafe_id}}?api_key=",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"{{base_url}}"
 					],
-					"port": "5000",
 					"path": [
 						"delete",
 						"{{cafe_id}}"
@@ -966,7 +961,7 @@
 	],
 	"variable": [
 		{
-			"id": "107c99f0-b29e-431d-92eb-c8b1a059e292",
+			"id": "dc610ccc-cf0a-4800-8eae-d0149ed465eb",
 			"key": "base_url",
 			"value": "http://127.0.0.1:5000",
 			"type": "string"
