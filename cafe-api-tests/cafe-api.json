@@ -271,11 +271,7 @@
 					"script": {
 						"id": "d0cc55a3-aff2-4597-95e8-ca076ad71c54",
 						"exec": [
-							"pm.environment.set(\"has_toilet\", pm.environment.get(\"has_toilet\") === \"true\");\r",
-							"pm.environment.set(\"has_wifi\", pm.environment.get(\"has_wifi\") === \"true\");\r",
-							"pm.environment.set(\"has_sockets\", pm.environment.get(\"has_sockets\") === \"true\");\r",
-							"pm.environment.set(\"can_take_calls\", pm.environment.get(\"can_take_calls\") === \"true\");\r",
-							"pm.environment.set(\"cafe_id\", parseInt(pm.environment.get(\"cafe_id\"), 10));"
+							""
 						],
 						"type": "text/javascript",
 						"packages": {}
