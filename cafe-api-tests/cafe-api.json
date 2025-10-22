@@ -964,7 +964,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "dcd6f1ca-1310-4043-a9d2-677034cb5705",
+				"id": "f5ab0f3c-9ad5-42ff-90d5-18d7b95d9421",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -975,7 +975,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "3e9786d6-f9da-454d-9d6e-3c09c2059b04",
+				"id": "c49549ac-6ea8-4837-9074-040560cc2826",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -984,73 +984,6 @@
 					"});"
 				]
 			}
-		}
-	],
-	"variable": [
-		{
-			"key": "name",
-			"value": "Test Cafe",
-			"type": "string"
-		},
-		{
-			"key": "map_url",
-			"value": "http://www.google.ca/",
-			"type": "string"
-		},
-		{
-			"key": "img_url",
-			"value": "http://www.bing.ca/",
-			"type": "string"
-		},
-		{
-			"key": "location",
-			"value": "Postman",
-			"type": "string"
-		},
-		{
-			"key": "seats",
-			"value": "42+",
-			"type": "string"
-		},
-		{
-			"key": "has_toilet",
-			"value": "true",
-			"type": "string"
-		},
-		{
-			"key": "has_wifi",
-			"value": "true",
-			"type": "string"
-		},
-		{
-			"key": "has_sockets",
-			"value": "true",
-			"type": "string"
-		},
-		{
-			"key": "can_take_calls",
-			"value": "true",
-			"type": "string"
-		},
-		{
-			"key": "coffee_price",
-			"value": "$4.99",
-			"type": "string"
-		},
-		{
-			"key": "new_price",
-			"value": "$4.98",
-			"type": "string"
-		},
-		{
-			"key": "cafe_id",
-			"value": "22",
-			"type": "string"
-		},
-		{
-			"key": "secret_key",
-			"value": "wow_super_secret",
-			"type": "string"
 		}
 	]
 }
