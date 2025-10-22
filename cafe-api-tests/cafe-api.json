@@ -982,7 +982,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "a55fe1fa-1bf9-4dbb-9708-cefcafb6550f",
+				"id": "d57c6f4e-799d-4490-a514-1c0dd85a217b",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -993,7 +993,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "8f582793-da24-4658-870b-5a4bc19753ec",
+				"id": "31951ea9-ff98-4011-a225-382c7703dc13",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -1002,6 +1002,14 @@
 					"});"
 				]
 			}
+		}
+	],
+	"variable": [
+		{
+			"id": "336e707d-2fde-4719-862b-c1cbe378a4b2",
+			"key": "base_url",
+			"value": "http://127.0.0.1:5000",
+			"type": "string"
 		}
 	]
 }
