@@ -724,15 +724,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:5000/search?loc=Postlad",
-					"protocol": "http",
+					"raw": "{{base_url}}/search?loc=Postlad",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"{{base_url}}"
 					],
-					"port": "5000",
 					"path": [
 						"search"
 					],
@@ -976,7 +971,7 @@
 	],
 	"variable": [
 		{
-			"id": "e1f0534d-648e-465c-8fdd-0217b9746bb5",
+			"id": "d9e8ffb3-20d6-493b-8e46-d77ef8cecbc2",
 			"key": "base_url",
 			"value": "http://127.0.0.1:5000",
 			"type": "string"
