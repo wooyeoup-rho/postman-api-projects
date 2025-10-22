@@ -541,7 +541,7 @@
 							"\r",
 							"const cafe = json.cafes[0];\r",
 							"\r",
-							"pm.test(\"coffee_price matches\", () => pm.expect(cafe.coffee_price).to.eql(pm.environment.get(\"new_price\")));"
+							"pm.test(\"coffee_price matches\", () => pm.expect(cafe.coffee_price).to.eql(pm.iterationData.new_price));"
 						],
 						"type": "text/javascript",
 						"packages": {}
@@ -550,8 +550,12 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"packages": {},
-						"type": "text/javascript"
+						"id": "f6d194c8-2617-4e69-a0fb-fb7d5042c15d",
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
 					}
 				}
 			],
