@@ -66,6 +66,29 @@
 						"type": "text/javascript",
 						"packages": {}
 					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "115a07f7-75f1-4e43-a162-48232905885f",
+						"exec": [
+							"// Convert string vars to booleans\r",
+							"[\"has_toilet\", \"has_wifi\", \"has_sockets\", \"can_take_calls\"].forEach(key => {\r",
+							"    const val = pm.environment.get(key);\r",
+							"    if (val === \"true\" || val === true) {\r",
+							"        pm.environment.set(key, true);\r",
+							"    } else if (val === \"false\" || val === false) {\r",
+							"        pm.environment.set(key, false);\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"// Convert numeric vars\r",
+							"const id = pm.environment.get(\"cafe_id\");\r",
+							"pm.environment.set(\"cafe_id\", parseInt(id, 10));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
 				}
 			],
 			"id": "441a8404-b0e0-4f49-92d8-88a8ac476abc",
