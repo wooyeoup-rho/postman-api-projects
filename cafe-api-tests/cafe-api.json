@@ -522,10 +522,17 @@
 							"\r",
 							"const cafe = json.cafes[0];\r",
 							"\r",
-							"pm.test(\"coffee_price matches\", () => pm.expect(cafe.coffee_price).to.eql(pm.collectionVariables.get(\"new_price\")));"
+							"pm.test(\"coffee_price matches\", () => pm.expect(cafe.coffee_price).to.eql(pm.environment.get(\"new_price\")));"
 						],
 						"type": "text/javascript",
 						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"packages": {},
+						"type": "text/javascript"
 					}
 				}
 			],
