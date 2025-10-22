@@ -529,7 +529,7 @@
 							"\r",
 							"const cafe = json.cafes[0];\r",
 							"\r",
-							"pm.test(\"coffee_price matches\", () => pm.expect(cafe.coffee_price).to.eql(pm.iterationData.new_price));"
+							"pm.test(\"coffee_price matches\", () => pm.expect(cafe.coffee_price).to.eql(pm.iterationData.get(\"new_price\")));"
 						],
 						"type": "text/javascript",
 						"packages": {}
