@@ -271,7 +271,19 @@
 					"script": {
 						"id": "d0cc55a3-aff2-4597-95e8-ca076ad71c54",
 						"exec": [
-							""
+							"// Convert string vars to booleans\r",
+							"[\"has_toilet\", \"has_wifi\", \"has_sockets\", \"can_take_calls\"].forEach(key => {\r",
+							"    const val = pm.environment.get(key);\r",
+							"    if (val === \"true\" || val === true) {\r",
+							"        pm.environment.set(key, true);\r",
+							"    } else if (val === \"false\" || val === false) {\r",
+							"        pm.environment.set(key, false);\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"// Convert numeric vars\r",
+							"const id = pm.environment.get(\"cafe_id\");\r",
+							"pm.environment.set(\"cafe_id\", parseInt(id, 10));"
 						],
 						"type": "text/javascript",
 						"packages": {}
