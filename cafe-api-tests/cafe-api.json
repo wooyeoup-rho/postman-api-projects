@@ -220,15 +220,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:5000/search?loc=Peckham",
-					"protocol": "http",
+					"raw": "{{base_url}}/search?loc=Peckham",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"{{base_url}}"
 					],
-					"port": "5000",
 					"path": [
 						"search"
 					],
@@ -1006,7 +1001,7 @@
 	],
 	"variable": [
 		{
-			"id": "bc1b5dcf-0751-4222-8661-404daf8a76af",
+			"id": "a3899e1f-91e9-48d4-a848-b5e013972dd3",
 			"key": "base_url",
 			"value": "http://127.0.0.1:5000",
 			"type": "string"
