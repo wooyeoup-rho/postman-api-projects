@@ -1,0 +1,16 @@
+[
+	{
+		"name": "Test Cafe",
+		"map_url": "http://www.google.ca/",
+		"img_url": "https://www.bing.ca/",
+		"location": "Postman",
+		"seats": "42+",
+		"has_toilet": true,
+		"has_wifi": true,
+		"has_sockets": true,
+		"can_take_calls": true,
+		"coffee_price": "$4.99",
+		"new_price": "$4.98",
+		"cafe_id": 22
+	}
+]
