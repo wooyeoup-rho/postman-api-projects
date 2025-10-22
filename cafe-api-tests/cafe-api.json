@@ -785,15 +785,10 @@
 				"method": "PATCH",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:5000/update-price/100000?new_price={{new_price}}",
-					"protocol": "http",
+					"raw": "{{base_url}}/update-price/100000?new_price={{new_price}}",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"{{base_url}}"
 					],
-					"port": "5000",
 					"path": [
 						"update-price",
 						"100000"
@@ -971,7 +966,7 @@
 	],
 	"variable": [
 		{
-			"id": "d9e8ffb3-20d6-493b-8e46-d77ef8cecbc2",
+			"id": "107c99f0-b29e-431d-92eb-c8b1a059e292",
 			"key": "base_url",
 			"value": "http://127.0.0.1:5000",
 			"type": "string"
