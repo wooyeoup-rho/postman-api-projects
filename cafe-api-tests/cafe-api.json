@@ -909,15 +909,10 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:5000/delete/1000000?api_key={{secret_key}}",
-					"protocol": "http",
+					"raw": "{{base_url}}/delete/1000000?api_key={{secret_key}}",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"{{base_url}}"
 					],
-					"port": "5000",
 					"path": [
 						"delete",
 						"1000000"
@@ -961,7 +956,7 @@
 	],
 	"variable": [
 		{
-			"id": "b5da31fb-e1a2-44b4-ad6f-efc53b115dfa",
+			"id": "0525459d-cebc-4c4f-9ffb-a15ab3f39785",
 			"key": "base_url",
 			"value": "http://127.0.0.1:5000",
 			"type": "string"
