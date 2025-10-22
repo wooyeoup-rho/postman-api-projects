@@ -356,7 +356,7 @@
 						}
 					]
 				},
-				"url": "http://127.0.0.1:5000/add"
+				"url": "{{base_url}}/add"
 			},
 			"response": []
 		},
@@ -1001,7 +1001,7 @@
 	],
 	"variable": [
 		{
-			"id": "a3899e1f-91e9-48d4-a848-b5e013972dd3",
+			"id": "b05379d6-a2e6-4e65-958c-f79733d9213f",
 			"key": "base_url",
 			"value": "http://127.0.0.1:5000",
 			"type": "string"
