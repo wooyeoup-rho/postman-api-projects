@@ -146,7 +146,7 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": "http://127.0.0.1:5000/random"
+				"url": "{{base_url}}/random"
 			},
 			"response": []
 		},
@@ -1006,7 +1006,7 @@
 	],
 	"variable": [
 		{
-			"id": "336e707d-2fde-4719-862b-c1cbe378a4b2",
+			"id": "bc1b5dcf-0751-4222-8661-404daf8a76af",
 			"key": "base_url",
 			"value": "http://127.0.0.1:5000",
 			"type": "string"
