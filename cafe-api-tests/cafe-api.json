@@ -971,18 +971,30 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "f5ab0f3c-9ad5-42ff-90d5-18d7b95d9421",
+				"id": "bad7f90e-f594-4f24-884d-db4d2a457d18",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
-					""
+					"// Convert string vars to booleans\r",
+					"[\"has_toilet\", \"has_wifi\", \"has_sockets\", \"can_take_calls\"].forEach(key => {\r",
+					"    const val = pm.environment.get(key);\r",
+					"    if (val === \"true\" || val === true) {\r",
+					"        pm.environment.set(key, true);\r",
+					"    } else if (val === \"false\" || val === false) {\r",
+					"        pm.environment.set(key, false);\r",
+					"    }\r",
+					"});\r",
+					"\r",
+					"// Convert numeric vars\r",
+					"const id = pm.environment.get(\"cafe_id\");\r",
+					"pm.environment.set(\"cafe_id\", parseInt(id, 10));"
 				]
 			}
 		},
 		{
 			"listen": "test",
 			"script": {
-				"id": "c49549ac-6ea8-4837-9074-040560cc2826",
+				"id": "32b07d85-812d-4504-8d64-d02a6653186d",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
