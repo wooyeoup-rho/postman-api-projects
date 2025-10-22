@@ -86,7 +86,7 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": "http://127.0.0.1:5000/all"
+				"url": "{{base_url}}/all"
 			},
 			"response": []
 		},
@@ -961,7 +961,7 @@
 	],
 	"variable": [
 		{
-			"id": "dc610ccc-cf0a-4800-8eae-d0149ed465eb",
+			"id": "b5da31fb-e1a2-44b4-ad6f-efc53b115dfa",
 			"key": "base_url",
 			"value": "http://127.0.0.1:5000",
 			"type": "string"
