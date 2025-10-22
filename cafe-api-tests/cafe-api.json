@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "b07e93bd-0074-4f8f-b9c0-61d544c3725a",
 		"name": "Cafe & Wi-Fi API Tests",
-		"description": "T",
+		"description": "A set of tests for the Cafe & Wi-Fi API: [https://github.com/wooyeoup-rho/python-projects/tree/main/flask/cafe-api](https://github.com/wooyeoup-rho/python-projects/tree/main/flask/cafe-api)",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
@@ -988,79 +988,79 @@
 	],
 	"variable": [
 		{
-			"id": "f7a95f47-1764-4a8a-9fdf-c117cba19861",
+			"id": "97191a67-da61-4f06-b1e3-04177dba7824",
 			"key": "name",
 			"value": "Test Cafe",
 			"type": "string"
 		},
 		{
-			"id": "b71bf2df-c979-4983-bfa2-ebff8da6884b",
+			"id": "37a1f7d7-6803-4417-8e75-9ce06e2b6599",
 			"key": "map_url",
 			"value": "http://www.google.ca/",
 			"type": "string"
 		},
 		{
-			"id": "df2c10ad-5671-451f-adbd-7f5b3450ebbf",
+			"id": "6dd4a402-0d90-405a-846d-be05e778d8ec",
 			"key": "img_url",
 			"value": "http://www.bing.ca/",
 			"type": "string"
 		},
 		{
-			"id": "5cccc197-a0b6-4fe3-8183-b8d794279dab",
+			"id": "6610a3c9-7387-412c-8571-0fce068136c9",
 			"key": "location",
 			"value": "Postman",
 			"type": "string"
 		},
 		{
-			"id": "447073f6-029e-4d30-a9ba-05a012c10cac",
+			"id": "cadf0b4d-8f59-4f56-9288-617db375ecb1",
 			"key": "seats",
 			"value": "42+",
 			"type": "string"
 		},
 		{
-			"id": "eac79917-552f-42c1-8d05-11b1fbea79f8",
+			"id": "2cfb83b1-f676-4d3d-a430-4b89092f0c52",
 			"key": "has_toilet",
 			"value": "true",
 			"type": "string"
 		},
 		{
-			"id": "15e6ec37-02ec-455d-adea-f11091953bf5",
+			"id": "58b3fea4-ca85-48aa-9e0e-72355ae38c98",
 			"key": "has_wifi",
 			"value": "true",
 			"type": "string"
 		},
 		{
-			"id": "7fecdbab-6c79-437e-b0b9-2eb4d2cb2f8c",
+			"id": "842c3066-2073-42be-baae-064fc27ac353",
 			"key": "has_sockets",
 			"value": "true",
 			"type": "string"
 		},
 		{
-			"id": "5f0c28c9-74ae-41a3-aec7-8540cd79ae95",
+			"id": "50ef0efa-04f0-4147-bf78-d2cc826d9c4b",
 			"key": "can_take_calls",
 			"value": "true",
 			"type": "string"
 		},
 		{
-			"id": "46e029dd-7a7d-4441-a3b5-8dcd7f977a88",
+			"id": "b37ca3d4-8161-44c3-8ae9-4cd3af5ec2db",
 			"key": "coffee_price",
 			"value": "$4.99",
 			"type": "string"
 		},
 		{
-			"id": "f478a7b3-aa12-4685-8853-ad1cb285d101",
+			"id": "a20d5669-766d-4622-9358-eb0f96f2a75c",
 			"key": "new_price",
 			"value": "$4.98",
 			"type": "string"
 		},
 		{
-			"id": "6da8d0fc-b287-4186-9af1-08dda6cb5403",
+			"id": "1a6fcfd3-32a8-4a8f-85ee-5f3ff91af2fa",
 			"key": "cafe_id",
 			"value": "22",
 			"type": "string"
 		},
 		{
-			"id": "e695f4a2-accf-4d44-afeb-d9abdefdbb03",
+			"id": "7f18160c-4994-44c2-b445-46cbe68596bb",
 			"key": "secret_key",
 			"value": "wow_super_secret",
 			"type": "string"
