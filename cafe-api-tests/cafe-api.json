@@ -410,15 +410,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:5000/search?loc={{location}}",
-					"protocol": "http",
+					"raw": "{{base_url}}/search?loc={{location}}",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"{{base_url}}"
 					],
-					"port": "5000",
 					"path": [
 						"search"
 					],
@@ -1001,7 +996,7 @@
 	],
 	"variable": [
 		{
-			"id": "b05379d6-a2e6-4e65-958c-f79733d9213f",
+			"id": "7aaf43a7-9faf-4caa-81ae-0c7bb73b810e",
 			"key": "base_url",
 			"value": "http://127.0.0.1:5000",
 			"type": "string"
