@@ -271,11 +271,11 @@
 					"script": {
 						"id": "d0cc55a3-aff2-4597-95e8-ca076ad71c54",
 						"exec": [
-							"pm.collectionVariables.set(\"has_toilet\", pm.collectionVariables.get(\"has_toilet\") === \"true\");\r",
-							"pm.collectionVariables.set(\"has_wifi\", pm.collectionVariables.get(\"has_wifi\") === \"true\");\r",
-							"pm.collectionVariables.set(\"has_sockets\", pm.collectionVariables.get(\"has_sockets\") === \"true\");\r",
-							"pm.collectionVariables.set(\"can_take_calls\", pm.collectionVariables.get(\"can_take_calls\") === \"true\");\r",
-							"pm.collectionVariables.set(\"cafe_id\", parseInt(pm.collectionVariables.get(\"cafe_id\"), 10));"
+							"pm.environment.set(\"has_toilet\", pm.environment.get(\"has_toilet\") === \"true\");\r",
+							"pm.environment.set(\"has_wifi\", pm.environment.get(\"has_wifi\") === \"true\");\r",
+							"pm.environment.set(\"has_sockets\", pm.environment.get(\"has_sockets\") === \"true\");\r",
+							"pm.environment.set(\"can_take_calls\", pm.environment.get(\"can_take_calls\") === \"true\");\r",
+							"pm.environment.set(\"cafe_id\", parseInt(pm.environment.get(\"cafe_id\"), 10));"
 						],
 						"type": "text/javascript",
 						"packages": {}
