@@ -471,15 +471,10 @@
 				"method": "PATCH",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:5000/update-price/{{cafe_id}}?new_price={{new_price}}",
-					"protocol": "http",
+					"raw": "{{base_url}}/update-price/{{cafe_id}}?new_price={{new_price}}",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"{{base_url}}"
 					],
-					"port": "5000",
 					"path": [
 						"update-price",
 						"{{cafe_id}}"
@@ -996,7 +991,7 @@
 	],
 	"variable": [
 		{
-			"id": "7aaf43a7-9faf-4caa-81ae-0c7bb73b810e",
+			"id": "cd7b69f4-8a2f-4d08-8e79-c90b0c6a85f7",
 			"key": "base_url",
 			"value": "http://127.0.0.1:5000",
 			"type": "string"
