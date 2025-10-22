@@ -2,6 +2,7 @@
 	"info": {
 		"_postman_id": "b07e93bd-0074-4f8f-b9c0-61d544c3725a",
 		"name": "Cafe & Wi-Fi API",
+		"description": "T",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
@@ -987,66 +988,79 @@
 	],
 	"variable": [
 		{
+			"id": "5511255f-363c-4947-b45e-7def00fede24",
 			"key": "name",
 			"value": "Test Cafe",
 			"type": "string"
 		},
 		{
+			"id": "dd4f62a5-d749-4a33-9cea-1abfb78af40b",
 			"key": "map_url",
 			"value": "http://www.google.ca/",
 			"type": "string"
 		},
 		{
+			"id": "1309e61f-9751-4c81-aa30-64d6f26e52fe",
 			"key": "img_url",
 			"value": "http://www.bing.ca/",
 			"type": "string"
 		},
 		{
+			"id": "d0fc9388-fa5b-453f-b04b-18194d2b4591",
 			"key": "location",
 			"value": "Postman",
 			"type": "string"
 		},
 		{
+			"id": "25b9e57c-ec9a-43ff-a6a6-8712da585727",
 			"key": "seats",
 			"value": "42+",
 			"type": "string"
 		},
 		{
+			"id": "0f4e08f7-708c-4394-ad3e-2a016e33e48d",
 			"key": "has_toilet",
 			"value": "true",
 			"type": "string"
 		},
 		{
+			"id": "30b87176-094a-4e24-879e-a3774e75532d",
 			"key": "has_wifi",
 			"value": "true",
 			"type": "string"
 		},
 		{
+			"id": "3f460ab9-0630-4b83-9d53-c4f1778b9da8",
 			"key": "has_sockets",
 			"value": "true",
 			"type": "string"
 		},
 		{
+			"id": "daa59536-54bb-4db3-a9bc-f92b2537efef",
 			"key": "can_take_calls",
 			"value": "true",
 			"type": "string"
 		},
 		{
+			"id": "86d80b3a-913c-4f4c-9f66-581d5da298d2",
 			"key": "coffee_price",
 			"value": "$4.99",
 			"type": "string"
 		},
 		{
+			"id": "d09346e7-016a-4623-9b55-654932dd90e5",
 			"key": "new_price",
 			"value": "$4.98",
 			"type": "string"
 		},
 		{
+			"id": "89482b44-164a-4a22-a0a5-9d709703a9a9",
 			"key": "cafe_id",
 			"value": "22",
 			"type": "string"
 		},
 		{
+			"id": "eaeae320-4e3e-4e93-ae76-3b9d59b78f86",
 			"key": "secret_key",
 			"value": "wow_super_secret",
 			"type": "string"
