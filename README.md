@@ -4,11 +4,9 @@
   <img src="postman_icon.png" alt="Postman Projects" width="500">
 </p>
 
----
 
 A collection of projects utilizing Postman, exploring Newman, Docker, and GitHub Actions: demonstrating fundamentals in REST APIs, automation, and test validation.
 
----
 
 ## Projects
 

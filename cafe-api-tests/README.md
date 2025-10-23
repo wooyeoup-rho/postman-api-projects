@@ -4,16 +4,12 @@
 
 A REST API for managing cafe data with automated testing using **Postman**, **Newman**, and CI/CD Integration with **Docker** and **GitHub Actions**.
 
----
-
 ## Architecture
 
 The project demonstrates a **multi-repository testing architecture** using Docker & GitHub Actions.
 
 - **API Repository**: https://github.com/wooyeoup-rho/python-projects/tree/main/flask/cafe-api
 - **Test Repository**: https://github.com/wooyeoup-rho/postman-api-projects/tree/main/cafe-api-tests
-
----
 
 ## Features
 
@@ -22,8 +18,6 @@ The project demonstrates a **multi-repository testing architecture** using Docke
 - Containerized testing environment with Docker Compose
 - Automated CI/CD pipeline with GitHub Actions
 - Cross-repository integration testing
-
----
 
 ## Running Tests Locally
 
@@ -38,8 +32,6 @@ cd postman-api-projects/cafe-api-tests
 # Run tests
 docker-compose up --build --abort-on-container-exit
 ```
-
----
 
 ## CI/CD Pipeline
 
@@ -79,8 +71,6 @@ jobs:
           EOF
 ```
 
----
-
 ## Test Coverage
 
 - ✅ GET all cafes
@@ -91,9 +81,6 @@ jobs:
 - ✅ DELETE cafe (with authentication)
 - ✅ Error handling (404s, missing parameters)
 - ✅ Data validation
-
----
-
 
 ## Technologies
 
