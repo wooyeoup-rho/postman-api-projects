@@ -1,0 +1,31 @@
+services:
+  api:
+    build:
+      context: ../../python-projects/flask/cafe-api
+    container_name: cafe_api
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=development
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:5000/all').read()"]
+      interval: 3s
+      timeout: 3s
+      retries: 15
+      start_period: 5s
+
+  newman:
+    image: postman/newman:latest
+    container_name: cafe_tests
+    depends_on:
+      api:
+        condition: service_healthy
+    volumes:
+      - .:/etc/newman
+    working_dir: /etc/newman
+    entrypoint: /bin/sh
+    command:
+      - -c
+      - |
+        sleep 2
+        newman run cafe-api.json -e cafe-api_env.postman_environment.json -d cafe_data.json --delay-request 1000
